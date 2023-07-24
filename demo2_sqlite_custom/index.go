@@ -36,7 +36,7 @@ func main() {
 }
 
 func delete(_db *gorm.DB, todos []todov1) {
-	// _db.Unscoped().Delete(&todos) Soft
+	// _db.Delete(&todos) Soft
 
 	_db.Unscoped().Delete(&todos) // Hard
 }
@@ -65,6 +65,7 @@ func connectDatabase() *gorm.DB {
 
 type todov1 struct {
 	gorm.Model
+	// ID       uint   `gorm:"id" gorm:"primary_key"`
 	Username string
 	Title    string
 	Message  string
